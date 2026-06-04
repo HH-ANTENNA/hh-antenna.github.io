@@ -2,7 +2,7 @@
 
 > Personal tech portfolio & blog — Computer Vision, Deep Learning.
 
-🌐 **[hh-antenna.github.io](https://hh-antenna.github.io)**
+🌐 **[hh-antenna.github.io](https://hh-antenna.github.io)** &nbsp;|&nbsp; [中文文档](README_CN.md)
 
 ---
 
