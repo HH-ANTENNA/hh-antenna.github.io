@@ -1,21 +1,375 @@
-        <!-- ═══════════ 🏆 比赛项目（已完结） ═══════════ -->
-        <div class="section">
-            <h2><span class="emoji">🏆</span> 全地形协同小车 · 省赛二等奖</h2>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HH-ANTENNA · CV & Robotics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0d1117;
+            color: #e6edf3;
+            font-family: "Fira Code", "Consolas", monospace;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
 
-            <div class="card-featured">
+        /* ── Hero ── */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-bottom: 2px solid #30363d;
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            color: #20C20E;
+            margin-bottom: 0.5rem;
+        }
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #8b949e;
+            margin-bottom: 0.3rem;
+        }
+        .hero .school {
+            font-size: 0.95rem;
+            color: #6e7681;
+        }
+        .hero .badges {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .badge-green {
+            background: #1a3a1a;
+            color: #20C20E;
+            border: 1px solid #20C20E;
+        }
+        .badge-red {
+            background: #3a1a1a;
+            color: #EE4C2C;
+            border: 1px solid #EE4C2C;
+        }
+        .badge-blue {
+            background: #1a2a3a;
+            color: #58a6ff;
+            border: 1px solid #58a6ff;
+        }
+        .badge-gold {
+            background: #3a2e1a;
+            color: #f0c040;
+            border: 1px solid #f0c040;
+        }
+
+        /* ── Sections ── */
+        .section {
+            margin: 2.5rem 0;
+        }
+        .section h2 {
+            color: #20C20E;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #21262d;
+        }
+        .section h2 .emoji {
+            margin-right: 0.4rem;
+        }
+
+        /* ── Project Cards ── */
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+        .card:hover {
+            border-color: #20C20E;
+        }
+        .card h3 {
+            color: #f0f6fc;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        .card h3 a {
+            color: #20C20E;
+            text-decoration: none;
+        }
+        .card h3 a:hover {
+            text-decoration: underline;
+        }
+        .card p {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin: 0.3rem 0;
+        }
+        .card .meta {
+            font-size: 0.8rem;
+            color: #6e7681;
+            margin-top: 0.5rem;
+        }
+
+        /* ── Featured Card (Car Project) ── */
+        .card-featured {
+            background: linear-gradient(135deg, #1a2a1a 0%, #161b22 100%);
+            border: 2px solid #f0c040;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .card-featured .ribbon {
+            position: absolute;
+            top: -8px;
+            right: 20px;
+            background: #f0c040;
+            color: #0d1117;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 12px rgba(240, 192, 64, 0.35);
+        }
+        .card-featured h3 {
+            color: #f0c040;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        .card-featured h3 a {
+            color: #f0c040;
+            text-decoration: none;
+        }
+        .card-featured h3 a:hover {
+            text-decoration: underline;
+        }
+        .card-featured .subtitle {
+            color: #f0f6fc;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .card-featured .result {
+            display: inline-block;
+            background: #1a3a1a;
+            color: #20C20E;
+            border: 1px solid #20C20E;
+            padding: 0.2rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+        .card-featured .repo-link {
+            display: inline-block;
+            margin-left: 0.8rem;
+            background: #21262d;
+            color: #58a6ff;
+            border: 1px solid #30363d;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .card-featured .repo-link:hover {
+            background: #30363d;
+            border-color: #58a6ff;
+        }
+
+        /* ── Architecture Diagram ── */
+        .arch {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        @media (max-width: 600px) {
+            .arch {
+                grid-template-columns: 1fr;
+            }
+        }
+        .arch-box {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+            text-align: center;
+        }
+        .arch-box .label {
+            font-size: 0.75rem;
+            color: #6e7681;
+            text-transform: uppercase;
+        }
+        .arch-box .value {
+            font-size: 0.9rem;
+            color: #e6edf3;
+            margin-top: 0.3rem;
+        }
+        .arch-arrow {
+            text-align: center;
+            color: #20C20E;
+            font-size: 1.5rem;
+            grid-column: 1 / -1;
+            padding: 0;
+            margin: -0.3rem 0;
+        }
+
+        /* ── Paper Section ── */
+        .paper-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: #8b949e;
+            margin-bottom: 0.8rem;
+        }
+        .paper-meta span {
+            color: #58a6ff;
+        }
+
+        /* ── Tech Tags ── */
+        .tags {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-top: 0.6rem;
+        }
+        .tag {
+            background: #21262d;
+            color: #c9d1d9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+        .tag a {
+            color: #c9d1d9;
+            text-decoration: none;
+        }
+        .tag a:hover {
+            color: #58a6ff;
+        }
+        .tag-github {
+            background: #1a2a3a;
+            color: #58a6ff;
+            border: 1px solid #58a6ff;
+        }
+        .tag-github a {
+            color: #58a6ff;
+        }
+        .tag-github a:hover {
+            color: #79c0ff;
+        }
+
+        /* ── About ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        @media (max-width: 600px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .about-item {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+        }
+        .about-item .key {
+            font-size: 0.8rem;
+            color: #6e7681;
+        }
+        .about-item .val {
+            font-size: 0.9rem;
+            color: #e6edf3;
+            margin-top: 0.2rem;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #30363d;
+            margin-top: 3rem;
+            color: #484f58;
+            font-size: 0.8rem;
+        }
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        details summary {
+            cursor: pointer;
+            color: #8b949e;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        details summary:hover {
+            color: #e6edf3;
+        }
+        details p {
+            color: #8b949e;
+            font-size: 0.85rem;
+            margin-top: 0.4rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid #30363d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ═══════════ HERO ═══════════ -->
+        <div class="hero">
+            <h1>Hi, I'm HH-ANTENNA</h1>
+            <p class="tagline">Computer Vision · Deep Learning · Embedded AI</p>
+            <p class="school">电子信息工程 本科在读 @ 深圳大学 &nbsp;|&nbsp; GPA 3.85/4.50 &nbsp;|&nbsp; 2024–2028</p>
+            <div class="badges">
+                <span class="badge badge-red">PyTorch</span>
+                <span class="badge badge-green">Python</span>
+                <span class="badge badge-blue">Computer Vision</span>
+                <span class="badge badge-green">Embedded AI</span>
+                <span class="badge badge-gold">🏆 省赛二等奖</span>
+            </div>
+        </div>
+
+             <div class="card-featured">
                 <span class="ribbon">🎉 省赛二等奖</span>
                 <h3>
-                    🚗 <a href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">全地形协同机器人 · 端侧边缘 AI 视觉感知系统</a>
+                    🚗 <a href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">全地形协同机器人 · 端侧边缘 AI 感知系统</a>
                 </h3>
                 <p class="subtitle">
-                    独立负责端侧边缘 AI 视觉系统构建，涵盖数据集自主构建、嵌入式模型训练部署、UART异构通信与高可靠性工程策略。完整落地闭环感知链路。
+                    独立负责端侧边缘 AI 视觉系统构建，涵盖数据集自主采集与清洗、嵌入式模型训练与部署、UART 异构通信，以及高可靠性工程策略。
                     <a class="repo-link" href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">📂 查看源码</a>
                 </p>
                 <p style="color:#8b949e; font-size:0.9rem; margin-bottom:0.8rem;">
                     <span class="result">✅ 已完结 · 2026.08 省赛二等奖</span>
                 </p>
 
-                <!-- Architecture -->
+                <!-- 架构图 -->
                 <div class="arch">
                     <div class="arch-box">
                         <div class="label">📷 视觉感知</div>
@@ -64,4 +418,192 @@
                     </span>
                 </div>
             </div>
+
+            
+        <!-- ═══════════ 📖 PAPER READING ═══════════ -->
+
+                <!-- ═══════════ 📄 PAPER READING · RESICOMP ═══════════ -->
+        <div class="section">
+            <h2><span class="emoji">📄</span> 论文研读：ResiComp · 损失鲁棒图像压缩</h2>
+
+            <div class="card-featured">
+                <span class="ribbon">📄 TCSVT 2026 · arXiv 2502.10812</span>
+                <h3>
+                    <a href="https://arxiv.org/abs/2502.10812" target="_blank">Loss‑Resilient Image Compression via Dual‑Functional Masked Visual Token Modeling</a>
+                </h3>
+                <p class="subtitle">
+                    神经图像压缩（NIC）效率已超越 VTM，但所有现有方法均假设可靠传输——这在实时通信（RTC）中不成立。ResiComp 提出 <strong>“生成＝压缩”</strong> 的核心洞察，用一个双功能掩码视觉 Transformer（MVTM）同时充当熵模型与丢包隐藏器（PLC），以<strong>结构内生鲁棒性</strong>替代事后冗余（FEC），在 6 种真实网络丢包模式下均保持稳定重建与优雅退化。
+                    <a class="repo-link" href="https://github.com/wsxtyrdd/ResiComp" target="_blank">📂 开源代码</a>
+                </p>
+                <p style="color:#8b949e; font-size:0.9rem; margin-bottom:0.8rem;">
+                    <span class="result">✅ 文献汇报完成 · 2026.08</span>
+                </p>
+
+                <!-- Architecture (对标小车项目的 Arch 风格) -->
+                <div class="arch">
+                    <div class="arch-box">
+                        <div class="label">🧩 编码端</div>
+                        <div class="value">ga 变换 + 量化<br />QLDS 伪随机分片 (L 个 slice)<br /><span style="color:#6e7681; font-size:0.7rem;">最大化 slice 间互信息</span></div>
+                    </div>
+                    <div class="arch-box">
+                        <div class="label">📡 有损信道</div>
+                        <div class="value">6 种真实网络 Trace<br />上下文模式 G 自适应切换<br /><span style="color:#6e7681; font-size:0.7rem;">ISC / MDC / LC 全频谱覆盖</span></div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-box">
+                        <div class="label">🧠 双功能 Transformer</div>
+                        <div class="value">Swin Transformer (12层/768D)<br />同时输出 GMM 参数 + 直接预测值<br /><span style="color:#6e7681; font-size:0.7rem;">统一熵建模与丢包隐藏</span></div>
+                    </div>
+                    <div class="arch-box">
+                        <div class="label">🛠 恢复输出</div>
+                        <div class="value">Density Head → 熵解码<br />PLC Head → 补全缺失 token<br /><span style="color:#6e7681; font-size:0.7rem;">质量博弈 · 始终可解 · 平滑退化</span></div>
+                    </div>
+                </div>
+
+                <p style="color:#8b949e; font-size:0.85rem; margin-top:0.8rem;">
+                    <strong>核心贡献：</strong>① 揭示熵模型与丢包隐藏的本质统一性，提出 MVTM 联合训练框架（双功能设计 > 独立双模型）；② 设计上下文模式调度（一次训练、6 种模式），效率‑鲁棒显式折中，比 FEC 动态冗余更灵活；③ 在极端突发丢包（ε≥0.14）下 PSNR 领先 VTM+FEC 超 2dB，解码失败率显著降低，雷达图鲁棒性覆盖面积更大且更均匀。
+                </p>
+
+                <details>
+                    <summary>📋 核心创新、实验结论与局限</summary>
+                    <p><strong>1. 双功能统一：</strong>一个 Transformer 同时担任条件熵模型（预测 9 个 GMM 参数/token）和丢包隐藏（直接预测缺失 token 值）。联合训练带来协同增益，消融实验表明独立双模型性能明显下降。</p>
+                    <p><strong>2. 上下文模式调度：</strong>通过切换依赖矩阵 G，在 ISC（最鲁棒）、MDC（灵活折中）、LC（最高压缩）之间平滑过渡，无需重训练。实际部署根据历史丢包率自适应选择，比 FEC 的冗余调整更鲁棒。</p>
+                    <p><strong>3. 实验验证：</strong>在 6 种真实网络 trace（EP1~EP6）上全面对比，网络越差优势越明显（EP4-6 大幅领先）；细粒度渐进解码保证从 10% 到 90% token 丢失时 PSNR 从 34.1dB 平滑降至 26.0dB。</p>
+                    <p><strong>4. 消融实验：</strong>双功能设计优于独立模型；PLC Head 直接预测优于期望值填充（高 mask 率差 1~2dB）；相比 ELIC+FEC（相同骨干网络），MVTM 大幅领先，证明增益来自上下文建模本身。</p>
+                    <p><strong>5. 局限与展望：</strong>域外泛化（屏幕/漫画/医学图像）尚待提升；CPU 推理约 3.6s 需优化；未来可扩展至帧间视频编码及物理层深度融合。</p>
+                </details>
+
+                <div class="tags">
+                    <span class="tag">神经图像压缩</span>
+                    <span class="tag">MVTM</span>
+                    <span class="tag">丢包隐藏</span>
+                    <span class="tag">Swin Transformer</span>
+                    <span class="tag">上下文模式</span>
+                    <span class="tag">NIC</span>
+                    <span class="tag">FEC vs 结构鲁棒</span>
+                    <span class="tag">TCSVT 2026</span>
+                    <span class="tag tag-github">
+                        <a href="https://github.com/wsxtyrdd/ResiComp" target="_blank">🔗 GitHub</a>
+                    </span>
+                    <span class="tag tag-github">
+                        <a href="https://arxiv.org/abs/2502.10812" target="_blank">📄 arXiv</a>
+                    </span>
+                </div>
+            </div>
         </div>
+            
+        <div class="section">
+            <h2><span class="emoji">📖</span> 论文汇报：Masked Autoencoders (MAE)</h2>
+
+            <div class="card">
+                <h3>Masked Autoencoders Are Scalable Vision Learners</h3>
+                <div class="paper-meta">
+                    <span>Kaiming He et al.</span> · CVPR 2022 · 文献汇报 2026.04
+                </div>
+                <p>
+                    论文核心思想：借鉴 NLP 中 BERT 的掩码自编码思路，提出 <strong>高掩码率（75%）+ 非对称编码器-解码器</strong> 的视觉自监督学习框架。
+                    随机遮挡 75% 的图像 patch，编码器仅处理可见部分（高效），轻量解码器重建全部像素（快速），在 ImageNet-1K 上实现 SOTA，且具有良好的可扩展性。
+                </p>
+
+                <details>
+                    <summary>📋 汇报要点展开</summary>
+                    <p><strong>背景：</strong>Transformer 在 NLP（BERT/MLM）已成熟，ViT 将其引入 CV。但视觉的自监督学习尚不成熟——MAE 填补了 CV 版 BERT 的空白。</p>
+                    <p><strong>核心创新 ① — 高掩码率：</strong>75% 随机掩码是最优设置（远高于 BERT 的 15%），因为图像空间冗余度远高于文本。高掩码迫使模型学习全局语义而非局部纹理插值。</p>
+                    <p><strong>核心创新 ② — 非对称架构：</strong>Encoder 仅处理 25% 可见 patch（ViT-H 也可高效训练），Decoder 是浅层窄通道（8 层 + 512 维），仅用于像素重建，预训练后丢弃。</p>
+                    <p><strong>关键实验：</strong>移除 mask token 使效率提升 3.3×；数据增强只需简单裁剪（色彩增强反而降效）；模型越大自监督收益越明显；与 BEiT（需 2.5× DALLE 数据训 tokenizer）相比，MAE 仅用 IN1K 即胜出。</p>
+                    <p><strong>迁移能力：</strong>在目标检测（COCO APbox）、实例分割（APmask）、语义分割（mIoU）等下游任务上均验证了强大的迁移能力。Scaling 行为表明 ViT-H 在监督训练中会过拟合，MAE 自监督预训练完全解决此问题。</p>
+                </details>
+
+                <div class="tags">
+                    <span class="tag">MAE</span>
+                    <span class="tag">Self-Supervised Learning</span>
+                    <span class="tag">Vision Transformer</span>
+                    <span class="tag">Masked Autoencoder</span>
+                    <span class="tag">CVPR 2022</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════ 🚀 PROJECTS ═══════════ -->
+        <div class="section">
+            <h2><span class="emoji">🚀</span> 项目 / Projects</h2>
+
+            <div class="card">
+                <h3><a href="https://github.com/HH-ANTENNA/Handwritten-Digit-Recognition-YOLOv8">🖊️ Handwritten Digit Recognition · YOLOv8</a></h3>
+                <p>端到端手写数字识别工具：YOLOv8-cls + Otsu 自适应阈值 + 竖直投影多数字分割 + Tkinter GUI。开箱即用，一键训练，实时手写识别。GPU/CPU 自适应。</p>
+                <div class="tags">
+                    <span class="tag">YOLOv8</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Tkinter</span>
+                    <span class="tag">MNIST</span>
+                    <span class="tag">Otsu</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/HH-ANTENNA/dl-learning-journey">🧠 Deep Learning Learning Journey</a></h3>
+                <p>从 PyTorch 基础到 CNN/目标检测的系统化学习路径，包含分支管理的学习笔记与项目代码。MLP → CNN → RNN/Transformer → 实战项目。</p>
+                <div class="tags">
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">CNN</span>
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">Computer Vision</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/HH-ANTENNA/claude-paper-assistant">📚 Claude Paper Assistant</a></h3>
+                <p>Claude Code 学术论文技能包：自动精读 PDF → 生成结构化 Word 学习笔记 → 从 PDF 截取原图生成学术风格汇报 PPT。覆盖「读论文」到「讲论文」全流程。</p>
+                <div class="tags">
+                    <span class="tag">Claude Code</span>
+                    <span class="tag">python-pptx</span>
+                    <span class="tag">PyMuPDF</span>
+                    <span class="tag">Skill</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════ 👤 ABOUT ═══════════ -->
+        <div class="section">
+            <h2><span class="emoji">👤</span> 关于我 / About</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <div class="key">🎓 教育</div>
+                    <div class="val">深圳大学 · 电子信息工程 · 本科<br />2024.09 – 2028.06 · GPA 3.85/4.50</div>
+                </div>
+                <div class="about-item">
+                    <div class="key">🌐 语言</div>
+                    <div class="val">CET-4: 540 · 技术文档阅读无障碍</div>
+                </div>
+                <div class="about-item">
+                    <div class="key">📚 核心课程</div>
+                    <div class="val">高等数学(A) · 线性代数(A) · C 程序设计(A) · 信号与系统 · 深度学习基础</div>
+                </div>
+                <div class="about-item">
+                    <div class="key">💼 方向</div>
+                    <div class="val">计算机视觉 · 深度学习 · 嵌入式 AI<br />目标检测 · 图像分类 · 模型部署</div>
+                </div>
+                <div class="about-item">
+                    <div class="key">🔬 科研经历</div>
+                    <div class="val">SDR-HDR 视频增强（导师课题组）<br />数据集构建 · 文献调研 · 代码复现</div>
+                </div>
+                <div class="about-item">
+                    <div class="key">📫 联系</div>
+                    <div class="val">
+                        📧 <a href="https://github.com/HH-ANTENNA" style="color:#58a6ff;">GitHub Profile</a><br />
+                        🔗 <a href="https://github.com/HH-ANTENNA" style="color:#58a6ff;">github.com/HH-ANTENNA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════ FOOTER ═══════════ -->
+        <div class="footer">
+            <p>HH-ANTENNA © 2026 · Built with ❤️ · Hosted on <a href="https://pages.github.com">GitHub Pages</a></p>
+            <p style="margin-top:0.3rem;">"以眼观世界，以码识万物"</p>
+        </div>
+
+    </div>
+</body>
+</html>
+呃，这个是我的主页，然后把这个主页也看看关于你这一个模块，我怎么给你改一下
