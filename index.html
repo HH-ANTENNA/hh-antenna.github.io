@@ -1,361 +1,3 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HH-ANTENNA · CV & Robotics</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: #0d1117;
-            color: #e6edf3;
-            font-family: "Fira Code", "Consolas", monospace;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        /* ── Hero ── */
-        .hero {
-            text-align: center;
-            padding: 3rem 0 2rem;
-            border-bottom: 2px solid #30363d;
-            margin-bottom: 2rem;
-        }
-        .hero h1 {
-            font-size: 2.4rem;
-            color: #20C20E;
-            margin-bottom: 0.5rem;
-        }
-        .hero .tagline {
-            font-size: 1.1rem;
-            color: #8b949e;
-            margin-bottom: 0.3rem;
-        }
-        .hero .school {
-            font-size: 0.95rem;
-            color: #6e7681;
-        }
-        .hero .badges {
-            margin-top: 1rem;
-            display: flex;
-            gap: 0.6rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .badge-green {
-            background: #1a3a1a;
-            color: #20C20E;
-            border: 1px solid #20C20E;
-        }
-        .badge-red {
-            background: #3a1a1a;
-            color: #EE4C2C;
-            border: 1px solid #EE4C2C;
-        }
-        .badge-blue {
-            background: #1a2a3a;
-            color: #58a6ff;
-            border: 1px solid #58a6ff;
-        }
-        .badge-gold {
-            background: #3a2e1a;
-            color: #f0c040;
-            border: 1px solid #f0c040;
-        }
-
-        /* ── Sections ── */
-        .section {
-            margin: 2.5rem 0;
-        }
-        .section h2 {
-            color: #20C20E;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #21262d;
-        }
-        .section h2 .emoji {
-            margin-right: 0.4rem;
-        }
-
-        /* ── Project Cards ── */
-        .card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            transition: border-color 0.2s;
-        }
-        .card:hover {
-            border-color: #20C20E;
-        }
-        .card h3 {
-            color: #f0f6fc;
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-        }
-        .card h3 a {
-            color: #20C20E;
-            text-decoration: none;
-        }
-        .card h3 a:hover {
-            text-decoration: underline;
-        }
-        .card p {
-            color: #8b949e;
-            font-size: 0.9rem;
-            margin: 0.3rem 0;
-        }
-        .card .meta {
-            font-size: 0.8rem;
-            color: #6e7681;
-            margin-top: 0.5rem;
-        }
-
-        /* ── Featured Card (Car Project) ── */
-        .card-featured {
-            background: linear-gradient(135deg, #1a2a1a 0%, #161b22 100%);
-            border: 2px solid #f0c040;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        .card-featured .ribbon {
-            position: absolute;
-            top: -8px;
-            right: 20px;
-            background: #f0c040;
-            color: #0d1117;
-            font-weight: 700;
-            font-size: 0.75rem;
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 0 12px rgba(240, 192, 64, 0.35);
-        }
-        .card-featured h3 {
-            color: #f0c040;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-        .card-featured h3 a {
-            color: #f0c040;
-            text-decoration: none;
-        }
-        .card-featured h3 a:hover {
-            text-decoration: underline;
-        }
-        .card-featured .subtitle {
-            color: #f0f6fc;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        .card-featured .result {
-            display: inline-block;
-            background: #1a3a1a;
-            color: #20C20E;
-            border: 1px solid #20C20E;
-            padding: 0.2rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 0.2rem;
-        }
-        .card-featured .repo-link {
-            display: inline-block;
-            margin-left: 0.8rem;
-            background: #21262d;
-            color: #58a6ff;
-            border: 1px solid #30363d;
-            padding: 0.2rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .card-featured .repo-link:hover {
-            background: #30363d;
-            border-color: #58a6ff;
-        }
-
-        /* ── Architecture Diagram ── */
-        .arch {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
-            margin: 1rem 0;
-        }
-        @media (max-width: 600px) {
-            .arch {
-                grid-template-columns: 1fr;
-            }
-        }
-        .arch-box {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 0.8rem 1rem;
-            text-align: center;
-        }
-        .arch-box .label {
-            font-size: 0.75rem;
-            color: #6e7681;
-            text-transform: uppercase;
-        }
-        .arch-box .value {
-            font-size: 0.9rem;
-            color: #e6edf3;
-            margin-top: 0.3rem;
-        }
-        .arch-arrow {
-            text-align: center;
-            color: #20C20E;
-            font-size: 1.5rem;
-            grid-column: 1 / -1;
-            padding: 0;
-            margin: -0.3rem 0;
-        }
-
-        /* ── Paper Section ── */
-        .paper-meta {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            font-size: 0.85rem;
-            color: #8b949e;
-            margin-bottom: 0.8rem;
-        }
-        .paper-meta span {
-            color: #58a6ff;
-        }
-
-        /* ── Tech Tags ── */
-        .tags {
-            display: flex;
-            gap: 0.4rem;
-            flex-wrap: wrap;
-            margin-top: 0.6rem;
-        }
-        .tag {
-            background: #21262d;
-            color: #c9d1d9;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-        }
-        .tag a {
-            color: #c9d1d9;
-            text-decoration: none;
-        }
-        .tag a:hover {
-            color: #58a6ff;
-        }
-        .tag-github {
-            background: #1a2a3a;
-            color: #58a6ff;
-            border: 1px solid #58a6ff;
-        }
-        .tag-github a {
-            color: #58a6ff;
-        }
-        .tag-github a:hover {
-            color: #79c0ff;
-        }
-
-        /* ── About ── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
-        }
-        @media (max-width: 600px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .about-item {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 0.8rem 1rem;
-        }
-        .about-item .key {
-            font-size: 0.8rem;
-            color: #6e7681;
-        }
-        .about-item .val {
-            font-size: 0.9rem;
-            color: #e6edf3;
-            margin-top: 0.2rem;
-        }
-
-        /* ── Footer ── */
-        .footer {
-            text-align: center;
-            padding: 2rem 0 1rem;
-            border-top: 1px solid #30363d;
-            margin-top: 3rem;
-            color: #484f58;
-            font-size: 0.8rem;
-        }
-        .footer a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-
-        details summary {
-            cursor: pointer;
-            color: #8b949e;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
-        details summary:hover {
-            color: #e6edf3;
-        }
-        details p {
-            color: #8b949e;
-            font-size: 0.85rem;
-            margin-top: 0.4rem;
-            padding-left: 0.5rem;
-            border-left: 2px solid #30363d;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-
-        <!-- ═══════════ HERO ═══════════ -->
-        <div class="hero">
-            <h1>Hi, I'm HH-ANTENNA</h1>
-            <p class="tagline">Computer Vision · Deep Learning · Embedded AI</p>
-            <p class="school">电子信息工程 本科在读 @ 深圳大学 &nbsp;|&nbsp; GPA 3.85/4.50 &nbsp;|&nbsp; 2024–2028</p>
-            <div class="badges">
-                <span class="badge badge-red">PyTorch</span>
-                <span class="badge badge-green">Python</span>
-                <span class="badge badge-blue">Computer Vision</span>
-                <span class="badge badge-green">Embedded AI</span>
-                <span class="badge badge-gold">🏆 省赛二等奖</span>
-            </div>
-        </div>
-
         <!-- ═══════════ 🏆 比赛项目（已完结） ═══════════ -->
         <div class="section">
             <h2><span class="emoji">🏆</span> 全地形协同小车 · 省赛二等奖</h2>
@@ -363,10 +5,10 @@
             <div class="card-featured">
                 <span class="ribbon">🎉 省赛二等奖</span>
                 <h3>
-                    🚗 <a href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">全地形协同小车 · 视觉感知模块</a>
+                    🚗 <a href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">全地形协同机器人 · 端侧边缘 AI 视觉感知系统</a>
                 </h3>
                 <p class="subtitle">
-                    独立负责视觉模块 + UNO 通信 · 数据集自主构建 · 模型在 MaixHub 训练部署
+                    独立负责端侧边缘 AI 视觉系统构建，涵盖数据集自主构建、嵌入式模型训练部署、UART异构通信与高可靠性工程策略。完整落地闭环感知链路。
                     <a class="repo-link" href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">📂 查看源码</a>
                 </p>
                 <p style="color:#8b949e; font-size:0.9rem; margin-bottom:0.8rem;">
@@ -377,11 +19,11 @@
                 <div class="arch">
                     <div class="arch-box">
                         <div class="label">📷 视觉感知</div>
-                        <div class="value">MaixumCAM-Pro<br />分类模型：三角柱 / 圆柱 / 正方体</div>
+                        <div class="value">MaixCAM-Pro<br />分类模型：三角柱 / 圆柱 / 正方体<br /><span style="color:#8b949e; font-size:0.7rem;">(约 222w 参数量, 嵌入式 NPU)</span></div>
                     </div>
                     <div class="arch-box">
                         <div class="label">🔗 通信层</div>
-                        <div class="value">UART 串口<br />MaixCAM → Arduino UNO</div>
+                        <div class="value">UART 串口 (带电平转换)<br />边缘算力解耦：仅传 0/1/2 离散指令</div>
                     </div>
                     <div class="arch-arrow">⬇</div>
                     <div class="arch-box">
@@ -395,25 +37,27 @@
                 </div>
 
                 <p style="color:#8b949e; font-size:0.85rem; margin-top:0.8rem;">
-                    <strong>我的工作：</strong>独立完成数据集采集/筛选/标注 → MaixHub 训练分类模型 → 部署到 MaixumCAM-Pro → UART 协议与 UNO 联调 → 实车测试 → 最终荣获 <strong style="color:#f0c040;">省赛二等奖</strong>。
+                    <strong>我的工作：</strong>独立完成数据集采集/筛选/标注 → MaixHub 迁移学习训练 → 部署到 MaixCAM-Pro → 边缘算力解耦与通信协议设计 → 实车测试与抗干扰调优 → 最终荣获 <strong style="color:#f0c040;">省赛二等奖</strong>。
                 </p>
 
                 <details>
-                    <summary>📋 技术细节</summary>
-                    <p><strong>视觉：</strong>MaixumCAM-Pro 运行分类模型（cube / tri / cir），置信度阈值 0.7，低于阈值默认返回 cir。通过 A18(RX)/A19(TX) 的 UART1 与 UNO 通信，发送整数编码（1=tri, 2=cir, 3=cube）。</p>
-                    <p><strong>控制：</strong>Arduino UNO 状态机架构 —— 识别抓取 → 直线 PD 循迹 → 栅格冲刺 → 大左转/U型弯专用循迹 → 超声波检测箱子 → 投放 → 终点。循迹使用软件 PWM（MsTimer2 中断），大左转采用 8 状态查表法，超声波非阻塞测距。</p>
-                    <p><strong>数据：</strong>独立采集并标注多种光照/角度下的物体图像，对比了分类 vs 目标检测方案后选择分类模型（推理更快、更适合嵌入式部署）。</p>
+                    <summary>📋 核心技术亮点与工程取舍</summary>
+                    <p><strong>1. 边缘算力解耦与轻量化通信：</strong>针对 Arduino UNO 算力受限的问题，实现视觉任务完全下沉至 MaixCAM-Pro。通过置信度阈值过滤后，仅向下位机发送 `0, 1, 2` 三个离散控制指令，大幅降低通信带宽与主控负载。</p>
+                    <p><strong>2. 多帧滑动窗口多数表决（抗抖动）：</strong>针对赛场环境震动与光线波动引起的单帧误检，采用滑动窗口机制（连续收集 10~15 帧识别结果，取类别众数）进行时序平滑去噪，大幅提升系统稳定性。</p>
+                    <p><strong>3. 应用层冗余通信策略（抗丢包）：</strong>鉴于 3.3V 与 5V 电平转换模块可能引起的串口偶发丢包，设计应用层冗余策略，单次决策连续重复发送 10~20 次相同指令，以极小开销确保下位机状态机永不卡死。</p>
+                    <p><strong>4. 置信度兜底与实用化推理：</strong>设定置信度 0.78 为拒识阈值，并针对三棱柱置信度偏低的情况，采用“非高置信度默认归类为三棱柱”的兜底逻辑，确保比赛全流程稳定输出。</p>
+                    <p><strong>5. 系统级方案取舍：</strong>初期尝试复用视觉定位盒子失败（资源竞争+视觉畸变），果断战略性放弃，改用超声波标定停车点。贯彻“工程落地优先级高于理论完美”的研发准则。</p>
                 </details>
 
                 <div class="tags">
-                    <span class="tag">MaixumCAM-Pro</span>
+                    <span class="tag">MaixCAM-Pro</span>
                     <span class="tag">MaixHub</span>
+                    <span class="tag">边缘算力解耦</span>
+                    <span class="tag">多帧投票</span>
                     <span class="tag">UART</span>
                     <span class="tag">Arduino UNO</span>
                     <span class="tag">PyTorch</span>
-                    <span class="tag">PD 循迹</span>
                     <span class="tag">状态机</span>
-                    <span class="tag">数据集构建</span>
                     <span class="tag">🏆 省赛二等奖</span>
                     <span class="tag tag-github">
                         <a href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">🔗 GitHub</a>
@@ -421,119 +65,3 @@
                 </div>
             </div>
         </div>
-
-        <!-- ═══════════ 📖 PAPER READING ═══════════ -->
-        <div class="section">
-            <h2><span class="emoji">📖</span> 论文汇报：Masked Autoencoders (MAE)</h2>
-
-            <div class="card">
-                <h3>Masked Autoencoders Are Scalable Vision Learners</h3>
-                <div class="paper-meta">
-                    <span>Kaiming He et al.</span> · CVPR 2022 · 文献汇报 2026.04
-                </div>
-                <p>
-                    论文核心思想：借鉴 NLP 中 BERT 的掩码自编码思路，提出 <strong>高掩码率（75%）+ 非对称编码器-解码器</strong> 的视觉自监督学习框架。
-                    随机遮挡 75% 的图像 patch，编码器仅处理可见部分（高效），轻量解码器重建全部像素（快速），在 ImageNet-1K 上实现 SOTA，且具有良好的可扩展性。
-                </p>
-
-                <details>
-                    <summary>📋 汇报要点展开</summary>
-                    <p><strong>背景：</strong>Transformer 在 NLP（BERT/MLM）已成熟，ViT 将其引入 CV。但视觉的自监督学习尚不成熟——MAE 填补了 CV 版 BERT 的空白。</p>
-                    <p><strong>核心创新 ① — 高掩码率：</strong>75% 随机掩码是最优设置（远高于 BERT 的 15%），因为图像空间冗余度远高于文本。高掩码迫使模型学习全局语义而非局部纹理插值。</p>
-                    <p><strong>核心创新 ② — 非对称架构：</strong>Encoder 仅处理 25% 可见 patch（ViT-H 也可高效训练），Decoder 是浅层窄通道（8 层 + 512 维），仅用于像素重建，预训练后丢弃。</p>
-                    <p><strong>关键实验：</strong>移除 mask token 使效率提升 3.3×；数据增强只需简单裁剪（色彩增强反而降效）；模型越大自监督收益越明显；与 BEiT（需 2.5× DALLE 数据训 tokenizer）相比，MAE 仅用 IN1K 即胜出。</p>
-                    <p><strong>迁移能力：</strong>在目标检测（COCO APbox）、实例分割（APmask）、语义分割（mIoU）等下游任务上均验证了强大的迁移能力。Scaling 行为表明 ViT-H 在监督训练中会过拟合，MAE 自监督预训练完全解决此问题。</p>
-                </details>
-
-                <div class="tags">
-                    <span class="tag">MAE</span>
-                    <span class="tag">Self-Supervised Learning</span>
-                    <span class="tag">Vision Transformer</span>
-                    <span class="tag">Masked Autoencoder</span>
-                    <span class="tag">CVPR 2022</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ═══════════ 🚀 PROJECTS ═══════════ -->
-        <div class="section">
-            <h2><span class="emoji">🚀</span> 项目 / Projects</h2>
-
-            <div class="card">
-                <h3><a href="https://github.com/HH-ANTENNA/Handwritten-Digit-Recognition-YOLOv8">🖊️ Handwritten Digit Recognition · YOLOv8</a></h3>
-                <p>端到端手写数字识别工具：YOLOv8-cls + Otsu 自适应阈值 + 竖直投影多数字分割 + Tkinter GUI。开箱即用，一键训练，实时手写识别。GPU/CPU 自适应。</p>
-                <div class="tags">
-                    <span class="tag">YOLOv8</span>
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">MNIST</span>
-                    <span class="tag">Otsu</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3><a href="https://github.com/HH-ANTENNA/dl-learning-journey">🧠 Deep Learning Learning Journey</a></h3>
-                <p>从 PyTorch 基础到 CNN/目标检测的系统化学习路径，包含分支管理的学习笔记与项目代码。MLP → CNN → RNN/Transformer → 实战项目。</p>
-                <div class="tags">
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">CNN</span>
-                    <span class="tag">Deep Learning</span>
-                    <span class="tag">Computer Vision</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3><a href="https://github.com/HH-ANTENNA/claude-paper-assistant">📚 Claude Paper Assistant</a></h3>
-                <p>Claude Code 学术论文技能包：自动精读 PDF → 生成结构化 Word 学习笔记 → 从 PDF 截取原图生成学术风格汇报 PPT。覆盖「读论文」到「讲论文」全流程。</p>
-                <div class="tags">
-                    <span class="tag">Claude Code</span>
-                    <span class="tag">python-pptx</span>
-                    <span class="tag">PyMuPDF</span>
-                    <span class="tag">Skill</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ═══════════ 👤 ABOUT ═══════════ -->
-        <div class="section">
-            <h2><span class="emoji">👤</span> 关于我 / About</h2>
-            <div class="about-grid">
-                <div class="about-item">
-                    <div class="key">🎓 教育</div>
-                    <div class="val">深圳大学 · 电子信息工程 · 本科<br />2024.09 – 2028.06 · GPA 3.85/4.50</div>
-                </div>
-                <div class="about-item">
-                    <div class="key">🌐 语言</div>
-                    <div class="val">CET-4: 540 · 技术文档阅读无障碍</div>
-                </div>
-                <div class="about-item">
-                    <div class="key">📚 核心课程</div>
-                    <div class="val">高等数学(A) · 线性代数(A) · C 程序设计(A) · 信号与系统 · 深度学习基础</div>
-                </div>
-                <div class="about-item">
-                    <div class="key">💼 方向</div>
-                    <div class="val">计算机视觉 · 深度学习 · 嵌入式 AI<br />目标检测 · 图像分类 · 模型部署</div>
-                </div>
-                <div class="about-item">
-                    <div class="key">🔬 科研经历</div>
-                    <div class="val">SDR-HDR 视频增强（导师课题组）<br />数据集构建 · 文献调研 · 代码复现</div>
-                </div>
-                <div class="about-item">
-                    <div class="key">📫 联系</div>
-                    <div class="val">
-                        📧 <a href="https://github.com/HH-ANTENNA" style="color:#58a6ff;">GitHub Profile</a><br />
-                        🔗 <a href="https://github.com/HH-ANTENNA" style="color:#58a6ff;">github.com/HH-ANTENNA</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ═══════════ FOOTER ═══════════ -->
-        <div class="footer">
-            <p>HH-ANTENNA © 2026 · Built with ❤️ · Hosted on <a href="https://pages.github.com">GitHub Pages</a></p>
-            <p style="margin-top:0.3rem;">"以眼观世界，以码识万物"</p>
-        </div>
-
-    </div>
-</body>
-</html>
