@@ -114,6 +114,9 @@
             color: #20C20E;
             text-decoration: none;
         }
+        .card h3 a:hover {
+            text-decoration: underline;
+        }
         .card p {
             color: #8b949e;
             font-size: 0.9rem;
@@ -152,6 +155,13 @@
             font-size: 1.2rem;
             margin-bottom: 0.3rem;
         }
+        .card-featured h3 a {
+            color: #f0c040;
+            text-decoration: none;
+        }
+        .card-featured h3 a:hover {
+            text-decoration: underline;
+        }
         .card-featured .subtitle {
             color: #f0f6fc;
             font-size: 0.9rem;
@@ -167,6 +177,23 @@
             font-size: 0.85rem;
             font-weight: 600;
             margin-top: 0.2rem;
+        }
+        .card-featured .repo-link {
+            display: inline-block;
+            margin-left: 0.8rem;
+            background: #21262d;
+            color: #58a6ff;
+            border: 1px solid #30363d;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .card-featured .repo-link:hover {
+            background: #30363d;
+            border-color: #58a6ff;
         }
 
         /* ── Architecture Diagram ── */
@@ -233,6 +260,24 @@
             padding: 0.2rem 0.6rem;
             border-radius: 12px;
             font-size: 0.75rem;
+        }
+        .tag a {
+            color: #c9d1d9;
+            text-decoration: none;
+        }
+        .tag a:hover {
+            color: #58a6ff;
+        }
+        .tag-github {
+            background: #1a2a3a;
+            color: #58a6ff;
+            border: 1px solid #58a6ff;
+        }
+        .tag-github a {
+            color: #58a6ff;
+        }
+        .tag-github a:hover {
+            color: #79c0ff;
         }
 
         /* ── About ── */
@@ -317,8 +362,13 @@
 
             <div class="card-featured">
                 <span class="ribbon">🎉 省赛二等奖</span>
-                <h3>🚗 全地形协同小车 · 视觉感知模块</h3>
-                <p class="subtitle">独立负责视觉模块 + UNO 通信 · 数据集自主构建 · 模型在 MaixHub 训练部署</p>
+                <h3>
+                    🚗 <a href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">全地形协同小车 · 视觉感知模块</a>
+                </h3>
+                <p class="subtitle">
+                    独立负责视觉模块 + UNO 通信 · 数据集自主构建 · 模型在 MaixHub 训练部署
+                    <a class="repo-link" href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">📂 查看源码</a>
+                </p>
                 <p style="color:#8b949e; font-size:0.9rem; margin-bottom:0.8rem;">
                     <span class="result">✅ 已完结 · 2026.08 省赛二等奖</span>
                 </p>
@@ -365,6 +415,9 @@
                     <span class="tag">状态机</span>
                     <span class="tag">数据集构建</span>
                     <span class="tag">🏆 省赛二等奖</span>
+                    <span class="tag tag-github">
+                        <a href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">🔗 GitHub</a>
+                    </span>
                 </div>
             </div>
         </div>
