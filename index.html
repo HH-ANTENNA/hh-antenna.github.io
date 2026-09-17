@@ -352,12 +352,12 @@
                 <span class="badge badge-green">Python</span>
                 <span class="badge badge-blue">Computer Vision</span>
                 <span class="badge badge-green">Embedded AI</span>
-                <span class="badge badge-gold">🏆 省赛二等奖</span>
+                <span class="badge badge-gold">🏆 省赛三等奖</span>
             </div>
         </div>
 
              <div class="card-featured">
-                <span class="ribbon">🎉 省赛二等奖</span>
+                <span class="ribbon">🎉 省赛三等奖</span>
                 <h3>
                     🚗 <a href="https://github.com/HH-ANTENNA/All-terrain-Cooperative-Vehicle/tree/main" target="_blank">全地形协同机器人 · 端侧边缘 AI 感知系统</a>
                 </h3>
@@ -422,75 +422,78 @@
             
         <!-- ═══════════ 📖 PAPER READING ═══════════ -->
 
-                <!-- ═══════════ 📄 PAPER READING · RESICOMP ═══════════ -->
-        <div class="section">
-            <h2><span class="emoji">📄</span> 论文研读：ResiComp · 损失鲁棒图像压缩</h2>
+          <!-- ═══════════ 🔁 PAPER REPRODUCTION · RESICOMP ═══════════ -->
+<div class="section">
+    <h2><span class="emoji">🔁</span> 论文复现：ResiComp · 损失鲁棒图像压缩</h2>
 
-            <div class="card-featured">
-                <span class="ribbon">📄 TCSVT 2026 · arXiv 2502.10812</span>
-                <h3>
-                    <a href="https://arxiv.org/abs/2502.10812" target="_blank">Loss‑Resilient Image Compression via Dual‑Functional Masked Visual Token Modeling</a>
-                </h3>
-                <p class="subtitle">
-                    神经图像压缩（NIC）效率已超越 VTM，但所有现有方法均假设可靠传输——这在实时通信（RTC）中不成立。ResiComp 提出 <strong>“生成＝压缩”</strong> 的核心洞察，用一个双功能掩码视觉 Transformer（MVTM）同时充当熵模型与丢包隐藏器（PLC），以<strong>结构内生鲁棒性</strong>替代事后冗余（FEC），在 6 种真实网络丢包模式下均保持稳定重建与优雅退化。
-                    <a class="repo-link" href="https://github.com/wsxtyrdd/ResiComp" target="_blank">📂 开源代码</a>
-                </p>
-                <p style="color:#8b949e; font-size:0.9rem; margin-bottom:0.8rem;">
-                    <span class="result">✅ 文献汇报完成 · 2026.08</span>
-                </p>
+    <div class="card-featured">
+        <span class="ribbon">🔁 Reproduction · TCSVT 2026 · arXiv 2502.10812</span>
+        <h3>
+            <a href="https://arxiv.org/abs/2502.10812" target="_blank">Loss‑Resilient Image Compression via Dual‑Functional Masked Visual Token Modeling</a>
+        </h3>
+        <p class="subtitle">
+            从零重训练复现 ResiComp 核心实验：<strong>6 种真实网络环境（EP1~EP6）× 3 种上下文模式（ISC / MDC / LC）</strong>的率失真曲线，
+            并额外搭建 <strong>LDPC 抗丢包基线</strong>进行横向对比。
+            <a class="repo-link" href="https://github.com/wsxtyrdd/ResiComp" target="_blank">📂 官方仓库</a>
+        </p>
+        <p style="color:#8b949e; font-size:0.9rem; margin-bottom:0.8rem;">
+            <span class="result">🔁 复现进行中 · 训练完成，实验收集中</span>
+        </p>
 
-             
-                <div class="arch">
-                    <div class="arch-box">
-                        <div class="label">🧩 编码端</div>
-                        <div class="value">ga 变换 + 量化<br />QLDS 伪随机分片 (L 个 slice)<br /><span style="color:#6e7681; font-size:0.7rem;">最大化 slice 间互信息</span></div>
-                    </div>
-                    <div class="arch-box">
-                        <div class="label">📡 有损信道</div>
-                        <div class="value">6 种真实网络 Trace<br />上下文模式 G 自适应切换<br /><span style="color:#6e7681; font-size:0.7rem;">ISC / MDC / LC 全频谱覆盖</span></div>
-                    </div>
-                    <div class="arch-arrow">⬇</div>
-                    <div class="arch-box">
-                        <div class="label">🧠 双功能 Transformer</div>
-                        <div class="value">Swin Transformer (12层/768D)<br />同时输出 GMM 参数 + 直接预测值<br /><span style="color:#6e7681; font-size:0.7rem;">统一熵建模与丢包隐藏</span></div>
-                    </div>
-                    <div class="arch-box">
-                        <div class="label">🛠 恢复输出</div>
-                        <div class="value">Density Head → 熵解码<br />PLC Head → 补全缺失 token<br /><span style="color:#6e7681; font-size:0.7rem;">质量博弈 · 始终可解 · 平滑退化</span></div>
-                    </div>
-                </div>
-
-                <p style="color:#8b949e; font-size:0.85rem; margin-top:0.8rem;">
-                    <strong>核心贡献：</strong>① 揭示熵模型与丢包隐藏的本质统一性，提出 MVTM 联合训练框架（双功能设计 > 独立双模型）；② 设计上下文模式调度（一次训练、6 种模式），效率‑鲁棒显式折中，比 FEC 动态冗余更灵活；③ 在极端突发丢包（ε≥0.14）下 PSNR 领先 VTM+FEC 超 2dB，解码失败率显著降低，雷达图鲁棒性覆盖面积更大且更均匀。
-                </p>
-
-                <details>
-                    <summary>📋 核心创新、实验结论与局限</summary>
-                    <p><strong>1. 双功能统一：</strong>一个 Transformer 同时担任条件熵模型（预测 9 个 GMM 参数/token）和丢包隐藏（直接预测缺失 token 值）。联合训练带来协同增益，消融实验表明独立双模型性能明显下降。</p>
-                    <p><strong>2. 上下文模式调度：</strong>通过切换依赖矩阵 G，在 ISC（最鲁棒）、MDC（灵活折中）、LC（最高压缩）之间平滑过渡，无需重训练。实际部署根据历史丢包率自适应选择，比 FEC 的冗余调整更鲁棒。</p>
-                    <p><strong>3. 实验验证：</strong>在 6 种真实网络 trace（EP1~EP6）上全面对比，网络越差优势越明显（EP4-6 大幅领先）；细粒度渐进解码保证从 10% 到 90% token 丢失时 PSNR 从 34.1dB 平滑降至 26.0dB。</p>
-                    <p><strong>4. 消融实验：</strong>双功能设计优于独立模型；PLC Head 直接预测优于期望值填充（高 mask 率差 1~2dB）；相比 ELIC+FEC（相同骨干网络），MVTM 大幅领先，证明增益来自上下文建模本身。</p>
-                    <p><strong>5. 局限与展望：</strong>域外泛化（屏幕/漫画/医学图像）尚待提升；CPU 推理约 3.6s 需优化；未来可扩展至帧间视频编码及物理层深度融合。</p>
-                </details>
-
-                <div class="tags">
-                    <span class="tag">神经图像压缩</span>
-                    <span class="tag">MVTM</span>
-                    <span class="tag">丢包隐藏</span>
-                    <span class="tag">Swin Transformer</span>
-                    <span class="tag">上下文模式</span>
-                    <span class="tag">NIC</span>
-                    <span class="tag">FEC vs 结构鲁棒</span>
-                    <span class="tag">TCSVT 2026</span>
-                    <span class="tag tag-github">
-                        <a href="https://github.com/wsxtyrdd/ResiComp" target="_blank">🔗 GitHub</a>
-                    </span>
-                    <span class="tag tag-github">
-                        <a href="https://arxiv.org/abs/2502.10812" target="_blank">📄 arXiv</a>
-                    </span>
-                </div>
+        <!-- 复现架构图 -->
+        <div class="arch">
+            <div class="arch-box">
+                <div class="label">📚 训练配置</div>
+                <div class="value">训练集：ImageNet 验证集<br />验证集：DIV2K<br /><span style="color:#6e7681; font-size:0.7rem;">从零重训练（非加载官方权重）</span></div>
+            </div>
+            <div class="arch-box">
+                <div class="label">📡 评估协议</div>
+                <div class="value">6 种真实网络 Trace (EP1~EP6)<br />上下文模式：ISC / MDC / LC<br /><span style="color:#6e7681; font-size:0.7rem;">率失真曲线 + 细粒度渐进解码</span></div>
+            </div>
+            <div class="arch-arrow">⬇</div>
+            <div class="arch-box">
+                <div class="label">🔁 复现结果</div>
+                <div class="value">图 A：6×EP × 3 模式 RD 曲线<br />图 B：vs LDPC 抗丢包对比<br /><span style="color:#6e7681; font-size:0.7rem;">（结果收集中，待更新）</span></div>
+            </div>
+            <div class="arch-box">
+                <div class="label">🎯 对比基线</div>
+                <div class="value">LDPC 前向纠错 (FEC)<br />同丢包率下 PSNR / 解码成功率<br /><span style="color:#6e7681; font-size:0.7rem;">结构内生鲁棒 vs 事后冗余</span></div>
             </div>
         </div>
+
+        <p style="color:#8b949e; font-size:0.85rem; margin-top:0.8rem;">
+            <strong>复现范围：</strong>① 从零重训练 MVTM 双功能模型（训练集 ImageNet 验证集 / 验证集 DIV2K）；② 复现 6 种真实网络 Trace 下 ISC / MDC / LC 三种上下文模式的率失真曲线；
+            ③ 额外搭建 LDPC 抗丢包基线，对比结构内生鲁棒性与事后冗余方案的性能差异。结果与论文数值的一致性分析待实验跑完后补充。
+        </p>
+
+        <details>
+            <summary>📋 复现细节与工程记录</summary>
+            <p><strong>1. 训练配置：</strong>选用 ImageNet 验证集作为训练集，DIV2K 作为验证集，从零重训练 MVTM 模型，而非直接加载官方权重，以验证论文方法的可复现性。</p>
+            <p><strong>2. 评估协议：</strong>严格对齐论文设置，在 6 种真实网络 trace（EP1~EP6）下评估 ISC / MDC / LC 三种上下文模式的率失真性能，并统计细粒度渐进解码（10%→90% token 丢失）下的 PSNR 退化曲线。</p>
+            <p><strong>3. 基线对比：</strong>额外实现 LDPC 前向纠错（FEC）抗丢包基线，与 MVTM 的结构内生鲁棒性在相同丢包率下进行 PSNR 与解码成功率对比。</p>
+            <p><strong>4. 与论文的偏差分析：</strong>（待实验跑完后补充，包括复现 PSNR / BD-rate 与论文报告值的差异及原因分析。）</p>
+            <p><strong>5. 踩坑与工程取舍：</strong>（待补充，包括环境配置、trace 对齐、指标计算差异等复现过程中遇到的问题与解决方案。）</p>
+        </details>
+
+        <div class="tags">
+            <span class="tag">论文复现</span>
+            <span class="tag">神经图像压缩</span>
+            <span class="tag">MVTM</span>
+            <span class="tag">ImageNet</span>
+            <span class="tag">DIV2K</span>
+            <span class="tag">LDPC 基线</span>
+            <span class="tag">上下文模式</span>
+            <span class="tag">Swin Transformer</span>
+            <span class="tag">TCSVT 2026</span>
+            <span class="tag tag-github">
+                <a href="https://github.com/wsxtyrdd/ResiComp" target="_blank">🔗 GitHub</a>
+            </span>
+            <span class="tag tag-github">
+                <a href="https://arxiv.org/abs/2502.10812" target="_blank">📄 arXiv</a>
+            </span>
+        </div>
+    </div>
+</div>
             
         <div class="section">
             <h2><span class="emoji">📖</span> 论文汇报：Masked Autoencoders (MAE)</h2>
